@@ -11,17 +11,7 @@ const Home: NextPage = () => {
     <>
       <Navbar />
       {session?.user.id ? (
-        <>
-          {session?.user.year ? (
-            <>
-              <Heorsection />
-            </>
-          ) : (
-            <>
-              <DetailModal />
-            </>
-          )}
-        </>
+        <>{session?.user.year ? <Heorsection /> : <DetailModal />}</>
       ) : (
         <button onClick={() => signIn("google")}>Sign In</button>
       )}

@@ -1,9 +1,8 @@
 import { type NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
-import Navbar from "../components/Navbar";
+import { signIn, useSession } from "next-auth/react";
 import DetailModal from "../components/DetailsModal";
-import Heorsection from "../components/HeroSection";
-import { useState } from "react";
+import Herosection from "../components/HeroSection";
+import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
@@ -11,7 +10,7 @@ const Home: NextPage = () => {
     <>
       <Navbar />
       {session?.user.id ? (
-        <>{session?.user.year ? <Heorsection /> : <DetailModal />}</>
+        <>{session?.user.year ? <Herosection /> : <DetailModal />}</>
       ) : (
         <button onClick={() => signIn("google")}>Sign In</button>
       )}

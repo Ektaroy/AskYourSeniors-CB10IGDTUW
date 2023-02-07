@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
-export const exampleRouter = createTRPCRouter({
+export const answerRouter = createTRPCRouter({
   nonApprovedAnswers: protectedProcedure
     .input(z.object({ category: z.string().optional() }))
     .query(async ({ input, ctx }) => {
@@ -122,7 +122,7 @@ export const exampleRouter = createTRPCRouter({
 
   approvedAnswers: protectedProcedure
     .input(z.object({ questionId: z.string() }))
-    .query(async ({ input, ctx }) => {
+    .mutation(async ({ input, ctx }) => {
       try {
         const answers = await ctx.prisma.answer.findMany({
           where: {
@@ -159,11 +159,21 @@ export const exampleRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       const { user } = ctx.session;
       try {
-        const answer = await ctx.prisma.answer.create({
+        const answer = await ctx.prisma.question.update({
+          where: {
+            id: input.questionId,
+          },
           data: {
-            questionId: input.questionId,
-            statement: input.statement,
-            userId: user.id,
+            answers: {
+              create: {
+                statement: input.statement,
+                user: {
+                  connect: {
+                    id: user.id,
+                  },
+                },
+              },
+            },
           },
         });
         return {

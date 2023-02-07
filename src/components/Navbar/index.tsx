@@ -103,7 +103,7 @@ export default function Navbar() {
                             <a
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "block cursor-pointer px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Settings
@@ -116,7 +116,7 @@ export default function Navbar() {
                               onClick={() => signOut()}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "block cursor-pointer px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Sign out

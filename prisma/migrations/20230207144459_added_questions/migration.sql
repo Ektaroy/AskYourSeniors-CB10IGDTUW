@@ -1,26 +1,26 @@
 -- CreateTable
 CREATE TABLE "Account" (
-    "id" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
-    "type" TEXT NOT NULL,
-    "provider" TEXT NOT NULL,
-    "providerAccountId" TEXT NOT NULL,
-    "refresh_token" TEXT,
-    "access_token" TEXT,
-    "expires_at" INTEGER,
-    "token_type" TEXT,
-    "scope" TEXT,
-    "id_token" TEXT,
-    "session_state" TEXT,
+    "id" STRING NOT NULL,
+    "userId" STRING NOT NULL,
+    "type" STRING NOT NULL,
+    "provider" STRING NOT NULL,
+    "providerAccountId" STRING NOT NULL,
+    "refresh_token" STRING,
+    "access_token" STRING,
+    "expires_at" INT4,
+    "token_type" STRING,
+    "scope" STRING,
+    "id_token" STRING,
+    "session_state" STRING,
 
     CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Session" (
-    "id" TEXT NOT NULL,
-    "sessionToken" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
+    "id" STRING NOT NULL,
+    "sessionToken" STRING NOT NULL,
+    "userId" STRING NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Session_pkey" PRIMARY KEY ("id")
@@ -28,46 +28,47 @@ CREATE TABLE "Session" (
 
 -- CreateTable
 CREATE TABLE "User" (
-    "id" TEXT NOT NULL,
-    "name" TEXT,
-    "email" TEXT,
+    "id" STRING NOT NULL,
+    "name" STRING,
+    "email" STRING,
     "emailVerified" TIMESTAMP(3),
-    "image" TEXT,
-    "role" TEXT NOT NULL DEFAULT 'USER',
-    "year" INTEGER,
-    "branch" TEXT,
+    "image" STRING,
+    "role" STRING NOT NULL DEFAULT 'USER',
+    "year" INT4,
+    "branch" STRING,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "VerificationToken" (
-    "identifier" TEXT NOT NULL,
-    "token" TEXT NOT NULL,
+    "identifier" STRING NOT NULL,
+    "token" STRING NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Question" (
-    "id" TEXT NOT NULL,
-    "statement" TEXT NOT NULL,
-    "approved" BOOLEAN NOT NULL DEFAULT false,
+    "id" STRING NOT NULL,
+    "statement" STRING NOT NULL,
+    "approved" BOOL NOT NULL DEFAULT false,
     "approvedAt" TIMESTAMP(3) NOT NULL,
-    "userId" TEXT,
+    "category" STRING,
+    "userId" STRING,
 
     CONSTRAINT "Question_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Answer" (
-    "id" TEXT NOT NULL,
-    "statement" TEXT NOT NULL,
-    "approved" BOOLEAN NOT NULL DEFAULT false,
-    "edited" BOOLEAN NOT NULL DEFAULT false,
+    "id" STRING NOT NULL,
+    "statement" STRING NOT NULL,
+    "approved" BOOL NOT NULL DEFAULT false,
+    "edited" BOOL NOT NULL DEFAULT false,
     "editedTime" TIMESTAMP(3),
     "approvedAt" TIMESTAMP(3) NOT NULL,
-    "questionId" TEXT,
-    "userId" TEXT,
+    "questionId" STRING,
+    "userId" STRING,
 
     CONSTRAINT "Answer_pkey" PRIMARY KEY ("id")
 );

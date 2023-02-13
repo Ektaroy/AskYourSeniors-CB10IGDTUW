@@ -113,7 +113,7 @@ export default function Navbar() {
                           {({ active }) => (
                             <a
                               className={classNames(
-                                active ? "bg-purple-800" : "",
+                                active ? "bg-gray-100" : "",
                                 "block cursor-pointer px-4 py-2 text-sm text-purple-700"
                               )}
                             >
@@ -127,7 +127,7 @@ export default function Navbar() {
                               onClick={() => signOut()}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block cursor-pointer px-4 py-2 shadow-xl text-sm text-gray-700"
+                                "block cursor-pointer px-4 py-2 shadow-xl text-sm text-purple-700"
                               )}
                             >
                              Log out

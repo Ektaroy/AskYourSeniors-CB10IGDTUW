@@ -5,9 +5,8 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "/profile" },
-
-  { name: "Ask Your Doubts", href: "/" },
+  { name: "Home", href: "/" },
+  { name: "Ask Your Doubts", href: "/Ask" },
   { name: "Leaderboard", href: "/leaderboard" },
 ];
 
@@ -38,15 +37,15 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-8 w-auto ml-9 lg:hidden"
+                    className="block h-8 w-auto ml-9 lg:h-14 lg:ml-2"
                     src="/images/Logo.png"
                     alt="Your Company"
                   />
-                  <img
+                  {/* <img
                     className=" h-14 ml-2 w-auto lg:block"
                     src="/images/Logo.png"
                     alt="Your Company"
-                  />
+                  /> */}
                 </div>
                 <div className=" sm:ml-52  sm:block lg:ml-24 xl:ml-60">
                   <div className="flex space-x-4">
@@ -75,7 +74,7 @@ export default function Navbar() {
                 </button> */
                 <button
                     onClick={() =>  signOut()}
-                    className="rounded bg-purple-700 py-2 ml-4  px-6 mr-5 shadow-xl font-medium text-white text-white hover:bg-white hover: border-2 hover:border-purple-900 hover:text-purple-900"
+                    className="rounded bg-purple-700 py-2 ml-4  px-6 mr-5 shadow-xl font-medium text-white hover:bg-white hover: border-2 hover:border-purple-900 hover:text-purple-900"
                    >
                     Sign up
 

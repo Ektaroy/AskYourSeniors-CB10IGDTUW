@@ -130,7 +130,7 @@ export default function Navbar() {
                                 "block cursor-pointer px-4 py-2 shadow-xl text-sm text-gray-700"
                               )}
                             >
-                              Sign in
+                             Log out
                             </a>
                           )}
                         </Menu.Item>
@@ -142,7 +142,7 @@ export default function Navbar() {
                     onClick={() => signIn("google")}
                     className="rounded bg-purple-700 py-2 ml-4  px-6 mr-5 shadow-xl font-medium  text-white hover:bg-white hover: border-2 hover:border-purple-900 hover:text-purple-900"
                   >
-                    Sign In
+                   Log out
                   </button>
                 )}
               </div>

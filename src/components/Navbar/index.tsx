@@ -142,7 +142,7 @@ export default function Navbar() {
                     onClick={() => signIn("google")}
                     className="rounded bg-purple-700 py-2 ml-4  px-6 mr-5 shadow-xl font-medium  text-white hover:bg-white hover: border-2 hover:border-purple-900 hover:text-purple-900"
                   >
-                   Log out
+                  Sign in
                   </button>
                 )}
               </div>

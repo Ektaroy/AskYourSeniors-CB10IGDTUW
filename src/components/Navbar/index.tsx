@@ -5,9 +5,10 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const navigation = [
+  { name: "Home", href: "/profile" },
+
   { name: "Ask Your Doubts", href: "/" },
   { name: "Leaderboard", href: "/leaderboard" },
-  { name: "Home", href: "/profile" },
 ];
 
 function classNames(...classes: string[]) {
@@ -18,14 +19,14 @@ export default function Navbar() {
   const { data: session } = useSession();
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 py-6 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-purple-800 hover:bg-purple-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -37,25 +38,25 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    className="block h-8 w-auto ml-9 lg:hidden"
+                    src="/images/Logo.png"
                     alt="Your Company"
                   />
                   <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    className=" h-14 ml-2 w-auto lg:block"
+                    src="/images/Logo.png"
                     alt="Your Company"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className=" sm:ml-52  sm:block lg:ml-24 xl:ml-60">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "text-purple-800 hover:bg-purple-700 hover:text-white",
+                          "rounded-md px-3 py-2 text-lg font-medium"
                         )}
                       >
                         {item.name}
@@ -65,19 +66,30 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
+                {/* <button
                   type="button"
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                </button> */
+                <button
+                    onClick={() =>  signOut()}
+                    className="rounded bg-purple-700 py-2 ml-4  px-6 mr-5 shadow-xl font-medium text-white text-white hover:bg-white hover: border-2 hover:border-purple-900 hover:text-purple-900"
+                   >
+                    Sign up
+
+                   
+                             
+                             
+                  </button>
+                }
 
                 {/* Profile dropdown */}
                 {session?.user.id ? (
                   <Menu as="div" className="relative ml-3">
                     <div>
-                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <Menu.Button className="flex rounded-full bg-purple-800 text-sm   focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-8 w-8 rounded-full"
@@ -102,8 +114,8 @@ export default function Navbar() {
                           {({ active }) => (
                             <a
                               className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block cursor-pointer px-4 py-2 text-sm text-gray-700"
+                                active ? "bg-purple-800" : "",
+                                "block cursor-pointer px-4 py-2 text-sm text-purple-700"
                               )}
                             >
                               Settings
@@ -116,10 +128,10 @@ export default function Navbar() {
                               onClick={() => signOut()}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block cursor-pointer px-4 py-2 text-sm text-gray-700"
+                                "block cursor-pointer px-4 py-2 shadow-xl text-sm text-gray-700"
                               )}
                             >
-                              Sign out
+                              Sign in
                             </a>
                           )}
                         </Menu.Item>
@@ -129,7 +141,7 @@ export default function Navbar() {
                 ) : (
                   <button
                     onClick={() => signIn("google")}
-                    className="rounded bg-indigo-500 py-2 px-4 font-bold text-white hover:bg-indigo-600"
+                    className="rounded bg-purple-700 py-2 ml-4  px-6 mr-5 shadow-xl font-medium  text-white hover:bg-white hover: border-2 hover:border-purple-900 hover:text-purple-900"
                   >
                     Sign In
                   </button>
@@ -146,7 +158,7 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "text-purple-600 hover:bg-purple-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                 >

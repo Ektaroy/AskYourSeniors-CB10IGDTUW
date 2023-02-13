@@ -5,7 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "/profile" },
+  { name: "Home", href: "" },
 
   { name: "Ask Your Doubts", href: "/" },
   { name: "Leaderboard", href: "/leaderboard" },

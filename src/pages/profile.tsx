@@ -56,7 +56,7 @@ export default function Profile() {
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-lg px-4 pt-10 pb-12 lg:pb-16">
+<!--       <main className="mx-auto max-w-lg px-4 pt-10 pb-12 lg:pb-16">
         <form>
           <div className="space-y-6">
             <div>
@@ -136,7 +136,60 @@ export default function Profile() {
             </div>
           </div>
         </form>
-      </main>
+      </main> -->
+       <div class="navbar w-5/6 mt-4 m-auto">
+    <img src="logo.png" alt="" />
+  </div>
+  <div class="w-2/5 mx-auto mt-10">
+    <h2 class="text-3xl font-bold mb-3 text-violet-900">Details</h2>
+    <div class="text-xl mb-12 text-violet-800 font-midbold">
+      Fill your details to continue
+    </div>
+    <form action="" class="m-2">
+      <div class="flex flex-col mb-6">
+        <label for="branch" class="text-violet-800 font-midbold "
+          >Branch</label
+        >
+        <input
+          class="mt-2 px-4 py-2 bg-gray-200 rounded-md text-sm"
+          type="text"
+          id="branch"
+          placeholder="CSE/IT/ECE/MAE"
+          required
+          value={details.branch}
+          onChange={(e) =>
+            setDetails({ ...details, branch: e.target.value })
+          }
+          
+        />
+      </div>
+      <div class="flex flex-col mb-6">
+        <label for="gradYear" class="text-violet-800 font-midbold"
+          >Graduation year</label
+        >
+        <input
+          class="mt-2 px-4 py-2 bg-gray-200 rounded-md text-sm"
+          type="text"
+          id="gradYear"
+          placeholder="Enter graduation year"
+          required
+          value={details.gradyear}
+          onChange={(e) =>
+            setDetails({ ...details, gradyear: e.target.value })
+          }
+        />
+      </div>
+    </form>
+    <div class="w-full flex justify-center">
+      <button
+        class="transition duration-1000 text-center w-3/4 mt-4 bg-gradient-to-r from-violet-500 to-violet-800 p-2 rounded-default text-gray-100 hover:bg-gradient-to-r hover:from-violet-700 hover:to-violet-800"
+        onClick={handleUpdateProfile}  
+        >
+        Submit
+      </button>
+    </div>
+  </div> 
+</body>
     </>
   );
 }

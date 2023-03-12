@@ -33,7 +33,7 @@ export default function Table() {
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold white"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       Year
                     </th>
@@ -64,22 +64,22 @@ export default function Table() {
                             />
                           </div>
                           <div className="ml-4">
-                            <div className="font-medium bg-purple-900">
+                            <div className="font-medium text-purple-900">
                               {person.name}
                             </div>
-                            <div className="bg-purple-700">{person.email}</div>
+                            <div className="text-purple-700">{person.email}</div>
                           </div>
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        <div className="bg-purple-700">{person.year}</div>
+                        <div className="text-purple-700">{person.year}</div>
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-white">
-                        <span className="inline-flex rounded-full bg-pink-600 px-2 text-xs font-semibold leading-5 text-green-800">
+                        <span className="inline-flex rounded-full bg-pink-600 px-2 text-xs font-semibold leading-5 text-white">
                           {person.branch}
                         </span>
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm bg-purple-700">
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-purple-700">
                         <div className="text-gray-900">{person.total}</div>
                       </td>
                     </tr>

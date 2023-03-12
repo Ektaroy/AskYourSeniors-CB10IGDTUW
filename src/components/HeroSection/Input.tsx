@@ -64,7 +64,7 @@ const Input = () => {
           <Dropdown selected={selected} setSelected={setSelected} />
           <button
             onClick={(e) => handleSubmit(e)}
-            className="block w-full rounded-md border border-transparent bg-purple-700 px-5 py-2 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10"
+            className="block w-full rounded-md border border-transparent bg-purple-600 px-5 py-2 text-base font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10"
           >
             Post
           </button>

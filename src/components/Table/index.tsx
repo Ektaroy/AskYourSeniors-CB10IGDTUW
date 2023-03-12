@@ -23,29 +23,29 @@ export default function Table() {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-300">
-                <thead className="bg-gray-50">
+                <thead className="bg-purple-700">
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-6"
                     >
                       Name
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3.5 text-left text-sm font-semibold white"
                     >
                       Year
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       Branch
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-white"
                     >
                       Points
                     </th>
@@ -64,22 +64,22 @@ export default function Table() {
                             />
                           </div>
                           <div className="ml-4">
-                            <div className="font-medium text-gray-900">
+                            <div className="font-medium bg-purple-900">
                               {person.name}
                             </div>
-                            <div className="text-gray-500">{person.email}</div>
+                            <div className="bg-purple-700">{person.email}</div>
                           </div>
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        <div className="text-gray-900">{person.year}</div>
+                        <div className="bg-purple-700">{person.year}</div>
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-white">
+                        <span className="inline-flex rounded-full bg-pink-600 px-2 text-xs font-semibold leading-5 text-green-800">
                           {person.branch}
                         </span>
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      <td className="whitespace-nowrap px-3 py-4 text-sm bg-purple-700">
                         <div className="text-gray-900">{person.total}</div>
                       </td>
                     </tr>
